@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 63, 81, 246;
+    --color-secondary: 255, 46, 99;
+    --color-accent: 185, 131, 255;
+  }
+
+  body {
+    @apply antialiased text-slate-200;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .animate-spin-reverse {
+    animation: spin-reverse 1s linear infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin 1.5s linear infinite;
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html.light {
+  @apply bg-white text-slate-900;
+}
+
+html.dark {
+  @apply bg-slate-950 text-white;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
